@@ -1,0 +1,27 @@
+{
+    "name": "cbzink/launchlibrary",
+    "description": "An unofficial SDK for Launch Library 2.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "cbzink\\LaunchLibrary\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Charles Zink",
+            "email": "charleszink@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.9"
+    },
+    "scripts": {
+        "cs-fix": "vendor/bin/php-cs-fixer fix --using-cache=no -v --ansi"
+    }
+}
