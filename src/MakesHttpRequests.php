@@ -6,6 +6,7 @@ use Exception;
 use GuzzleHttp\Psr7\Response;
 use cbzink\LaunchLibrary\Exceptions\NotFoundException;
 use cbzink\LaunchLibrary\Exceptions\RateLimitException;
+use cbzink\LaunchLibrary\Exceptions\InvalidTokenException;
 
 trait MakesHttpRequests
 {
@@ -78,6 +79,10 @@ trait MakesHttpRequests
      */
     protected function handleRequestError(Response $response): void
     {
+        if ($response->getStatusCode() === 401) {
+            throw new InvalidTokenException();
+        }
+
         if ($response->getStatusCode() === 429) {
             $body = json_decode((string) $response->getBody(), true);
 

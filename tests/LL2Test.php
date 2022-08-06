@@ -19,6 +19,7 @@ use cbzink\LaunchLibrary\Api\DockingEvent;
 use cbzink\LaunchLibrary\Api\SpaceStation;
 use cbzink\LaunchLibrary\Api\Launch\Launch;
 use cbzink\LaunchLibrary\Api\Spacecraft\Spacecraft;
+use cbzink\LaunchLibrary\Exceptions\InvalidTokenException;
 use cbzink\LaunchLibrary\Exceptions\NotFoundException;
 use cbzink\LaunchLibrary\Exceptions\RateLimitException;
 use cbzink\LaunchLibrary\Exceptions\UnknownApiException;
@@ -77,6 +78,22 @@ class LL2Test extends TestCase
             'id'   => 123,
             'name' => 'Test',
         ]);
+    }
+
+    public function testHandlesInvalidTokenErrors()
+    {
+        $this->expectException(InvalidTokenException::class);
+
+        $guzzle = Mockery::mock(HttpClient::class);
+        $client = new LL2(null, null, $guzzle);
+
+        $guzzle->shouldReceive('request')->once()->with('GET', 'agencies', [
+            'query' => ['limit' => $client->getPaginationLimit()],
+        ])->andReturn(
+            new Response(401, [], '{"detail": "Invalid token."}')
+        );
+
+        $client->get('agencies');
     }
 
     public function testHandlesRateLimitErrors()
