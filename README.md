@@ -30,7 +30,7 @@ A simple SDK for interacting with the [Launch Library 2 API](https://thespacedev
 
 ## Requirements
 
-* PHP >= 7.2
+* PHP >= 7.4
 * A LL2 API token _(Optional)_
 
 ## Installation
