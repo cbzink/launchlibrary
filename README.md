@@ -46,7 +46,7 @@ composer require cbzink/launchlibrary
 Instantiate an instance of the LL2 class
 
 ```php
-use cbzink\LaunchLibrary\LL2
+use cbzink\LaunchLibrary\LL2;
 
 $client = new LL2($apiToken, $apiEndpoint);
 ```
@@ -68,7 +68,7 @@ $client->getPaginationLimit() // (int) 30
 
 ### Resources
 
-Currently available resources Agencies, Astronauts, Docking Events, Events, Expeditions, Launchers, Launches, Locations, Pads, Space Stations, and Spacecraft.
+Currently available resources include Agencies, Astronauts, Docking Events, Events, Expeditions, Launchers, Launches, Locations, Pads, Space Stations, and Spacecraft.
 
 ### Searching for resources
 
