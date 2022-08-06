@@ -9,15 +9,15 @@ use GuzzleHttp\Client as HttpClient;
 /**
  * @method Api\Agency                agencies()
  * @method Api\Astronaut             astronauts()
- * @method Api\Launch\Launch         launches()
- * @method Api\Event\Event           events()
- * @method Api\SpaceStation          spaceStations()
- * @method Api\Expedition            expeditions()
  * @method Api\DockingEvent          dockingEvents()
+ * @method Api\Event\Event           events()
+ * @method Api\Expedition            expeditions()
+ * @method Api\Launch\Launch         launches()
  * @method Api\Launcher              launchers()
- * @method Api\Spacecraft\Spacecraft spacecraft()
  * @method Api\Location              locations()
  * @method Api\Pad                   locations()
+ * @method Api\Spacecraft\Spacecraft spacecraft()
+ * @method Api\SpaceStation          spaceStations()
  */
 class LL2
 {
@@ -46,13 +46,15 @@ class LL2
      * Create a new LL2 instance.
      *
      * @param null|string $apiToken
+     * @param null|string $apiEndpoint
+     * @param null|HttpClient $guzzle
      */
-    public function __construct($apiToken = null, $apiEndpoint = null)
+    public function __construct($apiToken = null, $apiEndpoint = null, $guzzle = null)
     {
         $this->apiToken      = $apiToken;
         $this->apiEndpoint   = $apiEndpoint ?: 'https://ll.thespacedevs.com/2.2.0/';
 
-        $this->guzzle = new HttpClient([
+        $this->guzzle = $guzzle ?: new HttpClient([
             'base_uri'    => 'https://ll.thespacedevs.com/2.2.0/',
             'http_errors' => false,
             'headers'     => [
@@ -87,8 +89,8 @@ class LL2
 
                 break;
 
-            case 'launches':
-                $api = new Api\Launch\Launch($this);
+            case 'dockingEvents':
+                $api = new Api\DockingEvent($this);
 
                 break;
 
@@ -97,18 +99,8 @@ class LL2
 
                 break;
 
-            case 'spaceStations':
-                $api = new Api\SpaceStation($this);
-
-                break;
-
             case 'expeditions':
                 $api = new Api\Expedition($this);
-
-                break;
-
-            case 'dockingEvents':
-                $api = new Api\DockingEvent($this);
 
                 break;
 
@@ -117,8 +109,8 @@ class LL2
 
                 break;
 
-            case 'spacecraft':
-                $api = new Api\Spacecraft\Spacecraft($this);
+            case 'launches':
+                $api = new Api\Launch\Launch($this);
 
                 break;
 
@@ -129,6 +121,16 @@ class LL2
 
             case 'pads':
                 $api = new Api\Pad($this);
+
+                break;
+
+            case 'spacecraft':
+                $api = new Api\Spacecraft\Spacecraft($this);
+
+                break;
+
+            case 'spaceStations':
+                $api = new Api\SpaceStation($this);
 
                 break;
 

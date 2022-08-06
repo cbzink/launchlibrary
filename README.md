@@ -1,5 +1,7 @@
 # Launch Library 2 SDK for PHP
 
+<a href="https://github.com/cbzink/launchlibrary/actions"><img src="https://github.com/cbzink/launchlibrary/workflows/tests/badge.svg" alt="Build Status"></a> <a href="https://packagist.org/packages/cbzink/launchlibrary"><img src="https://img.shields.io/packagist/v/cbzink/launchlibrary" alt="Latest Stable Version"></a> <a href="https://packagist.org/packages/cbzink/launchlibrary"><img src="https://img.shields.io/packagist/dt/cbzink/launchlibrary" alt="Total Downloads"></a> <a href="https://packagist.org/packages/cbzink/launchlibrary"><img src="https://img.shields.io/packagist/l/cbzink/launchlibrary" alt="License"></a>
+
 A simple SDK for interacting with the [Launch Library 2 API](https://thespacedevs.com/llapi).
 
 ## Table of Contents
