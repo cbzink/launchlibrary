@@ -5,23 +5,25 @@ A simple SDK for interacting with the [Launch Library 2 API](https://thespacedev
 ## Table of Contents
 
 <details>
-    <summary>View the table of contents.</summary>
+  <summary>View the table of contents.</summary>
 
-    - [Launch Library 2 SDK for PHP](#launch-library-2-sdk-for-php)
+  <br />
+
+  - [Launch Library 2 SDK for PHP](#launch-library-2-sdk-for-php)
     * [Requirements](#requirements)
     * [Installation](#installation)
     * [Usage](#usage)
         + [Setup](#setup)
-        - [Pagination limits](#pagination-limits)
+            - [Pagination limits](#pagination-limits)
         + [Resources](#resources)
         + [Searching for resources](#searching-for-resources)
-        - [Pagination](#pagination)
+            - [Pagination](#pagination)
         + [Retrieving resources](#retrieving-resources)
         + [Special cases](#special-cases)
-        - [Events and Launches](#events-and-launches)
+            - [Events and Launches](#events-and-launches)
         + [Spacecraft](#spacecraft)
-    * [Acknowledgements](#acknowledgements)
-    * [License](#license)
+  * [Acknowledgements](#acknowledgements)
+  * [License](#license)
 </details>
 
 ## Requirements
