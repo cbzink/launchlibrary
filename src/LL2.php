@@ -54,14 +54,19 @@ class LL2
         $this->apiToken      = $apiToken;
         $this->apiEndpoint   = $apiEndpoint ?: 'https://ll.thespacedevs.com/2.2.0/';
 
+        $headers = [
+            'Accept'       => 'application/json',
+            'Content-Type' => 'application/json',
+        ];
+
+        if ($this->apiToken) {
+            $headers['Authorization'] = "Token {$this->apiToken}";
+        }
+
         $this->guzzle = $guzzle ?: new HttpClient([
             'base_uri'    => 'https://ll.thespacedevs.com/2.2.0/',
             'http_errors' => false,
-            'headers'     => [
-                'Token'        => $this->apiToken,
-                'Accept'       => 'application/json',
-                'Content-Type' => 'application/json',
-            ],
+            'headers'     => $headers,
         ]);
     }
 
